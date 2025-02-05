@@ -1,3 +1,4 @@
+import GHC.Base (VecElem(Int16ElemRep))
 -- :cd C:/Users/Harvey/Documents/Year 2/MATHFUN/FUN/
 
 
@@ -51,4 +52,41 @@ taxiFare distance = base + firstRate + secondRate
         firstRate = min 10 (fromIntegral distance) * 0.50
         secondRate = max 0 (fromIntegral distance - 10) *  0.30
 
-    
+howManyAboveAverage :: Int -> Int -> Int -> Int
+howManyAboveAverage x y z = length(filter (> avg) [fromIntegral x,fromIntegral y,fromIntegral z])
+    where
+        avg = fromIntegral (x + y + z) / 3
+
+{- 
+Test Cases
+howManyAboveAverage 5 5 5 - output: 0
+howManyAboveAverage 2 5 9 - output: 1
+howManyAboveAverage 1 5 7 - output: 2
+-}
+
+validDate :: Int -> Int -> Bool
+validDate day month
+    | month < 1 || month > 12 = False
+    | day < 1 = False
+    | month == 2 = day <= 28
+    | month `elem` [4, 6, 9, 11] = day <= 30
+    | otherwise = day <= 31
+
+daysInMonth :: Int -> Int -> Int 
+daysInMonth month year
+    | month < 1 || month > 12 = error "Invalid Month"
+    | month == 2 = if isLeapYear year then 29 else 28
+    | month `elem` [4, 6, 9, 11] = 30
+    | otherwise = 31
+    where
+        isLeapYear y = y `mod` 4 == 0
+
+{-
+Evaluation:
+sumThree 3 5 7:
+3 + 5 + 7
+= 8 + 7
+= 15
+
+sumThree 8 (1 + 3) 2
+-}
