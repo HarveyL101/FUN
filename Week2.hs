@@ -88,5 +88,56 @@ sumThree 3 5 7:
 = 8 + 7
 = 15
 
-sumThree 8 (1 + 3) 2
+sumThree 8 (1 + 3) 2:
+8 (4) 2
+= 8 + 4 + 2
+= 12 + 2
+= 14
+
+threeDifferent 1 4 2 (a /= b && a /= c && b /= c)
+1 /= 4 && 1 /= 2 && 4 /= 2
+= true && true && true
+= true
+break;
+
+threeDifferent 1 7 7
+1 /= 7 && 1 /= 7 && 7 /= 7
+= true && true && False
+= False
+break;
+
+howManyEqual 3 5 2 (
+    | x == y && x == z = 3
+    | x == y || x == z || y == z = 2
+    | x /= y && x /= z = 0
+)
+| x == y && x == z = 3
+3 == 5 && 3 == 2
+= false && false
+= false
+
+| x == y || x == z || y == z = 2
+3 == 5 || 3 == 2 || 5 == 2
+= false || false || false
+= false
+
+| x /= y && x /= z
+= 3 /= 5 && 3 /= 2
+= true && true
+= true
+= 0
+break;
+
+howManyEqual 5 2 5
+| x == y && x == z = 3
+5 == 2 && 5 == 5
+= false && true
+= false
+
+| x == y || x == z || y == z = 2
+5 == 2 || 5 == 5 || 2 == 5
+= false || true || false
+= true
+= 2
+break;
 -}
