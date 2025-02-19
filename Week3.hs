@@ -113,7 +113,7 @@ power x y = x * power x (y - 1)
 sumFromTo :: Int -> Int -> Int
 sumFromTo x y 
     | x > y = 0
-    | otherwise = x + (sumFromTo (x + 1) y)
+    | otherwise = x + sumFromTo (x + 1) y
 
 gcd :: Int -> Int -> Int
 gcd x 0 = x
