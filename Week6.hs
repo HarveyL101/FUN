@@ -117,15 +117,14 @@ alwaysPositive f xs = foldr (&&) True (map (\x -> f x > 0) xs)
 alwaysPositive f xs = andAll (\x -> f x > 0) xs)
 -}
 {- Solution 3: 
-alwaysPositive f = andAll . map (\x -> f x > 0)
 -}
+alwaysPositive f = andAll . map (\x -> f x > 0)
 
 -- 9. write a function productSquareRoots that returns the product of the square roots 
 -- of all non-negative numbers in the given list
-{-
 productSquareRoots :: [Float] -> Float
 productSquareRoots xs = foldr (*) 1 (squareRoots xs)
--}
+
 
 
 -- Complete the following questions **WITHOUT** using map, filter or foldr.
@@ -170,13 +169,13 @@ onlyLowerCase = foldr (\x xs -> if isLower x then x : xs else xs) []
 
 write similar definitions for the following functions:
 -}
--- a.
-alwaysPositive :: (Float -> Float) -> [Float] -> Bool
-alwaysPositive f xs = foldr (\x acc -> f x > 0 && acc) True xs
+-- a. alwaysPositive
+soHappy f xs = foldr (\x acc -> f x > 0 && acc) True xs
 
--- b.
--- productSquareRoots :: [Float] -> Float
--- productSquareRoots xs = foldr (\x acc) 
+-- b. productSquareRoots
+productSquareRootz :: [Float] -> Float
+productSquareRootz xs = foldr (\x acc -> sqrt x * acc) 1 (filter (>= 0) xs)
 
--- c. 
--- reverse
+-- c. reverse
+reversed :: [a] -> [a]
+reversed = foldr (\x xs -> xs ++ [x]) []
