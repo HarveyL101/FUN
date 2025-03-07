@@ -89,10 +89,16 @@ multAll (x : xs) = x * multAll xs
 -- 6. Use the && operator to write a recursive function andAll which returns the 
 -- conjunction (and) of all the elements of a list. This is a reimplementation of 
 -- the Prelude’s and function so do not use this function in your solution.
+{-
 andAll :: [Bool] -> Bool
 andAll [] = True
 andAll [x] = x
 andAll (x : xs) = x && andAll xs
+-}
+
+-- **Better solution**
+andAll :: [Bool] -> Bool
+andAll xs = foldr (&&) True xs
 
 -- 7. Write a recursive orAll function that returns the disjunction of all elements
 -- in the given list (uses the || operator). Hint: Start by thinking about how the 
