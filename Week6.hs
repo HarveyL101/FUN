@@ -171,7 +171,7 @@ onlyLowerCase = foldr (\x xs -> if isLower x then x : xs else xs) []
 write similar definitions for the following functions:
 -}
 -- a.
-alwaysPositive :: (Float -> Float) -> [Float] -> Bool
+-- alwaysPositive :: (Float -> Float) -> [Float] -> Bool
 alwaysPositive f xs = foldr (\x acc -> f x > 0 && acc) True xs
 
 -- b.
