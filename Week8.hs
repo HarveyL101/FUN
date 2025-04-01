@@ -307,8 +307,6 @@ funcB currentList = do
   
   putStrLn (wordsToString currentList)
 
-
-
 funcC :: [String] -> IO ()
 funcC currentList = do
 
